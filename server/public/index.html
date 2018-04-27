@@ -7,7 +7,7 @@
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
   </head>
-  <body>
+  <body ng-app="KoalaApp" ng-controller="KoalaController as vm">
     <div class="container">
       <header>
         <img src="images/icon.png" class="icon" />
@@ -19,11 +19,37 @@
       <br>
       <h2>Add Koala</h2>
       <!-- input fields -->
+      <input type="text" ng-model="vm.newKoala.name" placeholder="Name">
+      <input type="text" ng-model="vm.newKoala.age" placeholder="Age">
+      <input type="text" ng-model="vm.newKoala.gender" placeholder="Gender">
+      <input type="text" ng-model="vm.newKoala.ready_to_transfer" placeholder="Ready to transfer?">
+      <input type="text" ng-model="vm.newKoala.notes" placeholder="Notes">
+      <button ng-click="vm.createKoala()">Add Koala</button>
       <br>
       <hr>
       <br>
       <h2>All Koalas</h2>
       <!-- table of koalas -->
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Age</th> 
+          <th>Gender</th>
+          <th>Ready to transfer</th>
+          <th>Notes</th>
+          <th>Mark ready</th>
+          <th>Remove</th>
+        </tr>
+        <tr>
+          <td>Scotty</td>
+          <td>4</td> 
+          <td>Male</td>
+          <td>true</td>
+          <td>Born in Guatemala</td> 
+          <td><button ng-click="vm.addKoala()">remove</button></td>
+          <td><button ng-click="vm.addKoala()">Add Koala</button></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>
