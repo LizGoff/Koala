@@ -11,14 +11,18 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.9",
+
     "body-parser": "^1.18.2",
     "express": "^4.14.0",
     "mongoose": "^5.0.16"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Phanx091/MEAN-Koala-Holla.git"
   },
+
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/Phanx091/MEAN-Koala-Holla/issues"
   },
