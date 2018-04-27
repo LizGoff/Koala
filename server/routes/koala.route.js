@@ -22,11 +22,16 @@ router.post('/', (req, res) => {
   
   // GET
   router.get('/', (req, res) => {
-    // Temporary mock data. Replace this with mongoose.
-    const mockData = [{ _id: 1, name: 'Mock 1', gender: 'F', age: 5, ready_to_transfer: true, notes: 'n/a' },
-                      { _id: 2, name: 'Mock 2', gender: 'M', age: 5, ready_to_transfer: false, notes: 'n/a' }]
-    res.send(mockData);
-  });
+    koala.find({})
+    .then(dataFromDataBase) => {
+        res.send(dataFromDataBase);
+        console.log('data from data from database', dataFromDataBase)
+    })
+    .catch(error => {
+        console.log('error with koala find', error);
+        res.sendStatus(500);
+    });
+});
 
 router.put('/', (req, res) =>{
 //

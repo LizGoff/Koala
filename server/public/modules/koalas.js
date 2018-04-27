@@ -1,4 +1,7 @@
-{
+
+
+
+module.exports = {
 	"_id" : ObjectId("58de9673d0c1cb22fbcb2655"),
 	"name" : "Scotty",
 	"gender" : "M",
@@ -52,3 +55,4 @@
   "notes" : "Has a pet iguana",
 	"__v" : 0
 }
+
