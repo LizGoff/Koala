@@ -40,13 +40,13 @@
           <th>Mark ready</th>
           <th>Remove</th>
         </tr>
-        <tr>
-          <td>Scotty</td>
-          <td>4</td> 
-          <td>Male</td>
-          <td>true</td>
-          <td>Born in Guatemala</td> 
-          <td><button ng-click="vm.updateKoala(koala)">Ready for transfer</button></td>
+        <tr ng-repeat="koala in vm.koalaList">
+          <td><input type="text" ng-model="koala.name"></td>
+          <td><input type="number" ng-model="koala.age"></td> 
+          <td><input type="text" ng-model="koala.gender"></td>
+          <td><input type="text" ng-model="koala.ready_to_transfer"></td>
+          <td><input type="text" ng-model="koala.notes"></td> 
+          <td><button ng-hide="koala.ready_to_transfer == true" ng-click="vm.updateKoala(koala)">Ready for transfer</button></td>
           <td><button ng-click="vm.deleteKoala(koala)">Remove</button></td>
         </tr>
       </table>
