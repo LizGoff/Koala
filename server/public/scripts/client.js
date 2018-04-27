@@ -7,11 +7,11 @@ app.controller("KoalaController", [
     function($http) {
         console.log("KoalaController has been loaded");
         var self = this;
-        self.koalaList = []
+        self.koalaList = [];
         self.newKoala = {};
-        getKoalaToDom()
+        self.getKoalaToDom()
 
-        function getKoalaToDom() {
+        self.getKoalaToDom = function () {
             $http({
                 method: "GET",
                 url: "/koala"
@@ -33,18 +33,41 @@ app.controller("KoalaController", [
             })
             .then(function(response) {
                 console.log('post response:', response);
-                getKoalaToDom()
+                self.getKoalaToDom()
             })
             .catch(function(error) {
                 console.log("error on /koala get", error);
             });
         }
+        self.deleteKoala = function(deleteKoala) {
+            console.log(self.newKoala);
+            $http({
+                method: "DELETE",
+                url: "/koala",
+                params: deleteKoala
+            })
+            .then(function(response) {
+                self.getKoalaToDom()
+                console.log('response from delete', response);
+            })
+            .catch(function(error) {
+                console.log('error on /koala DELETE', error);
+            });
+        }
+        self.updateKoala = function(koalaToSave) {
+            console.log(self.newKoala);
+            $http({
+                method: "PUT",
+                url: "/koala",
+                data: koalaToSave
+            })
+            .then(function(response) {
+                self.getKoalaToDom()
+                console.log('response from put', response);
+            })
+            .catch(function(error) {
+                console.log('error on /koala PUT', error);
+            })
+        }
     }
-
-
-
-
-
-
-
 ]);
